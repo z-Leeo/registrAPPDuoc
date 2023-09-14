@@ -1,0 +1,72 @@
+.container {
+    padding-top: 30px;
+    margin: 30px;
+    overflow: hidden;
+    
+  }
+  
+  .container2 {
+    text-align: center;
+  }
+  
+  .title {
+    text-align: center;
+  }
+  
+  /* Estilos para campos de entrada */
+  ion-input[name='password']::part(native),
+  ion-input[name='usuario']::part(native) {
+    caret-color: transparent;
+  }
+
+  ion-content::part(scroll) {
+    transition: padding-bottom 1s ease-in-out;
+  }
+
+.tags{
+  padding: 25px;
+  text-align: center;
+}
+
+.titleapp{
+  text-align: center;
+  font-size: xx-large;
+  font-weight: 700;
+  padding: 20px;
+}
+.subtitle{
+  text-align: center;
+}
+  
+
+.redesS{
+  text-align: center;
+}
+
+.redes{
+  width: 60px;
+  height: 40px;
+
+
+}
+
+.redesI{
+  width: 60px;
+  height: 40px;
+  color: #dc2d64f4; 
+color: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+color: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+color: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+}
+
+.pswdF{
+  text-align: center;
+}
+
+ion-loading.custom-loading {
+  --background: #e3edff;
+  --spinner-color: #1c6dff;
+
+  color: #1c6dff;
+}

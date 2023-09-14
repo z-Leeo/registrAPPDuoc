@@ -1,0 +1,51 @@
+<form [formGroup]="formularioRegistro">
+  <ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+      <ion-title class="title">Registro</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true" class="contenedor">
+    
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large" class="title">Registro</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <h1 class="titleapp">RegistrAPP</h1>
+  
+    <br>
+  
+    <h4 class="subtitle">Bienvenido!</h4>
+
+
+   
+    <ion-list class="container">
+
+      
+      <ion-input [(ngModel)]="usuario" label="Nombre" formControlName="nombre"
+       required minlength="3" maxlength="8" class="usuario" name="nombre" type="text"
+      label-placement="floating" fill="outline" placeholder=""></ion-input>
+  
+  <br><br>
+
+         <ion-input [(ngModel)]="password" label="Contraseña" type="password" formControlName="password" 
+         label-placement="floating"  required minlength="4" maxlength="4" class="contra"
+         fill="outline" placeholder=""></ion-input>
+ <br><br>
+         <ion-input label="Confirmar Contraseña" type="password" formControlName="confirmacionPassword" 
+       label-placement="floating"  required minlength="4" maxlength="4" class="contra2"
+       fill="outline" placeholder=""></ion-input>
+
+      
+    </ion-list>
+
+    
+    <ion-list class="container2">
+      <ion-button type="submit" class="btn" (click)="guardar()" >Registrarse</ion-button>
+    </ion-list>
+  <div class="tags">
+    <a href="" [routerLink]="['/login']">Ya tienes una cuenta?</a>
+  </div>
+  </ion-content>
+  </form>

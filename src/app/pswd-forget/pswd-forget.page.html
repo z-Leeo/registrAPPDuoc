@@ -1,0 +1,43 @@
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Restablecer Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <div class="container">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Restablece Tu Contraseña</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+
+      <p>Ingrese su nombre de usuario Minimo de 8 Caracteres, si tiene algún problema con su contraseña, contacte 
+        con administración de DuocUC
+        
+      </p>
+
+      <ion-item>
+        <ion-label position="floating">Nombre usuario</ion-label>
+        <ion-input placeholder="" required minlength="3" maxlength="8" class="usuario" name="nombre" type="text"></ion-input>
+      </ion-item>
+
+      <br>
+
+      
+      
+    </ion-card-content>
+    <div class="captcha ion-text-center">
+    <re-captcha (resolved)="captchaResolved($event)" [siteKey]="siteKey" class="recaptcha"></re-captcha>
+    </div>
+
+    <ion-list class="container2">
+      <ion-button type="submit" class="btn" (click)="enviar()">Enviar</ion-button>
+    </ion-list>
+  </ion-card>
+
+  </div>
+</ion-content>

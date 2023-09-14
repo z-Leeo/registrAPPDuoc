@@ -1,0 +1,40 @@
+.container {
+    padding-top: 30px;
+    margin: 30px;
+    overflow: hidden;
+    
+  }
+  
+  .container2 {
+    text-align: center;
+  }
+  
+  .title {
+    text-align: center;
+  }
+  
+  /* Estilos para campos de entrada */
+  ion-input[name='password']::part(native),
+  ion-input[name='usuario']::part(native) {
+    caret-color: transparent;
+  }
+
+  ion-content::part(scroll) {
+    transition: padding-bottom 1s ease-in-out;
+  }
+
+.tags{
+  padding: 25px;
+  text-align: center;
+}
+
+.titleapp{
+  text-align: center;
+  font-size: xx-large;
+  font-weight: 700;
+  padding: 30px;
+}
+.subtitle{
+  text-align: center;
+}
+
