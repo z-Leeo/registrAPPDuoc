@@ -70,3 +70,9 @@ ion-loading.custom-loading {
 
   color: #1c6dff;
 }
+
+ion-input {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px; /* Opcional: añade un poco de espacio entre los inputs */
+}

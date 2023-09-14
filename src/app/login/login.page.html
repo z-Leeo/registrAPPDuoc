@@ -12,29 +12,30 @@
         <ion-title size="large" class="title">Login</ion-title>
       </ion-toolbar>
     </ion-header>
-    <h1 class="titleapp">RegistrAPP</h1>
+    <h1 class="titleapp" >RegistrAPP</h1>
   
     <br>
   
     <h4 class="subtitle">Bienvenido!</h4>
-    <ion-list class="container">
+    <div class="container" [@slideInFromLeft]>
+      
   
       
       <ion-input [(ngModel)]="usuario" label="Nombre" formControlName="nombre"
        required minlength="3" maxlength="8" class="usuario" name="nombre" type="text"
-      label-placement="floating" fill="outline" placeholder=""></ion-input>
+      label-placement="floating" fill="outline" placeholder=""  [@slideInFromLeft]></ion-input>
   
   <br><br>
   
   
-        <ion-input [(ngModel)]="password" label="Contraseña" type="password" formControlName="password" 
+        <ion-input [(ngModel)]="password"  label="Contraseña" type="password" formControlName="password" 
          label-placement="floating"  required minlength="4" maxlength="4" class="contra"
-         fill="outline" placeholder=""></ion-input>
-    </ion-list>
+         fill="outline" placeholder=""  [@slideInFromLeft]></ion-input>
+    </div>
     
     
     <ion-list class="container2">
-      <ion-button type="submit" class="btn" (click)="ingreso()">Ingresar</ion-button>
+      <ion-button type="submit" class="btn" (click)="ingreso()" [@slideInFromLeft]>Ingresar</ion-button>
     </ion-list>
   <div class="tags">
     <a href="" [routerLink]="['/registro']">Crea tu cuenta gratis</a>

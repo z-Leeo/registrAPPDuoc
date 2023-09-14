@@ -1,20 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController, NavController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { UserServiceService } from '../user-service.service';
 import { delay } from 'rxjs';
+import { trigger, style, transition } from '@angular/animations'
+import { slideInFromLeftAnimation } from '../animations/animations';
+
 
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
+  animations: [slideInFromLeftAnimation]
 })
 export class LoginPage implements OnInit {
 
-
+  
   
   usuario!: string;
   password!: string;
@@ -85,9 +89,8 @@ export class LoginPage implements OnInit {
 
 
   }
-  
-
- 
-
+  ionViewWillEnter() {
+    this.formularioLogin.reset(); // Reinicia el estado del formulario
+  }
 
 }

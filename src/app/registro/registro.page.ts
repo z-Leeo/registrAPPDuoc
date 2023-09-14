@@ -59,4 +59,8 @@ export class RegistroPage implements OnInit {
 
     
   }
+
+  ionViewWillEnter() {
+    this.formularioRegistro.reset(); // Reinicia el estado del formulario
+  }
 }

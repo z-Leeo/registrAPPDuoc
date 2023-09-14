@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { StatusBar } from '@capacitor/status-bar';
 import { AnimationController, Platform } from '@ionic/angular';
 
@@ -9,7 +10,7 @@ import { AnimationController, Platform } from '@ionic/angular';
 })
 export class AppComponent {
 
-
+ 
 
   myCustomPageTransition = ((baseEl: any, opts?: any) => { 
     console.log("opts.enteringEl:"  + opts.enteringEl); //Entering Element - New Page
@@ -36,7 +37,8 @@ export class AppComponent {
 
 constructor(
   private platform: Platform,
-  private animationCtrl: AnimationController
+  private animationCtrl: AnimationController,
+  private router : Router
 ) {
   this.initializeApp();
 }
