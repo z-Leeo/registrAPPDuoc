@@ -42,40 +42,6 @@ export class LoginPage implements OnInit {
 
 
   async ingreso(){
-    var f = this.formularioLogin.value;
-    var usuarioString = localStorage.getItem('usuario');
-    if (usuarioString !== null) {
-      var usuario = JSON.parse(usuarioString);
-      if (usuario.nombre == f.nombre && usuario.password == f.password) {
-        console.log('Ingresado');
-        localStorage.setItem('ingresado', 'true');
-        this.router.navigate(['/home']);
-        
-      } else {
-        const alert = await this.alertController.create({
-          header: 'Datos incorrectos',
-          message: 'Los datos que ingresaste son incorrectos',
-          buttons: ['Aceptar'],
-        });
-        await alert.present();
-      }
-    } else {
-      // Manejo de caso cuando no se encuentra el valor en localStorage
-    }
-    if(usuario.nombre == f.nombre && usuario.password == f.password){
-      localStorage.setItem('usuario','');
-      this.router.navigate(['/home']);
-    
-
-    }
-
-
-    this.userservice.ingreso(this.usuario, this.password);
-    if(this.userservice.isLoggedIn()){
-      this.router.navigate(['/home']);
-      
-
-    }
     
     
     const loading = await this.loadingCtrl.create({

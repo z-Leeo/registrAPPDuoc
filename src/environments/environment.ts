@@ -4,9 +4,20 @@
 
 export const environment = {
   production: false,
+  
 
   recaptcha:{
     siteKey:'6LcdViIoAAAAACJUIlpT41ssbvT-K_OpoLcd-GVO'
+  },
+
+  firebaseConfig : {
+    apiKey: "AIzaSyCXQ6RRB0wyvyYKz6EbouyzG0ZL9YBx1Q8",
+    authDomain: "regristrapp.firebaseapp.com",
+    projectId: "regristrapp",
+    storageBucket: "regristrapp.appspot.com",
+    messagingSenderId: "801404535256",
+    appId: "1:801404535256:web:0c31c9cadb166b1265b2ad",
+    measurementId: "G-XV4L2VWE7Y"
   }
 
 };

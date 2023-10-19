@@ -76,3 +76,10 @@ ion-input {
   display: block;
   margin-bottom: 10px; /* Opcional: añade un poco de espacio entre los inputs */
 }
+
+
+.titleapp{
+background-image: linear-gradient(to right, #1201ff, #c5b100); /* Define los colores y la dirección del degradado */
+  -webkit-background-clip: text; /* Aplica el degradado al texto */
+  color: transparent; /* Hace que el texto original sea transparente */
+}

@@ -1,4 +1,4 @@
-<form [formGroup]="formularioRegistro">
+<form [formGroup]="formularioRegistro" novalidate>
   <ion-header [translucent]="true">
     <ion-toolbar color="primary">
       <ion-title class="title">Registro</ion-title>
@@ -23,17 +23,18 @@
     <ion-list class="container">
 
       
-      <ion-input [(ngModel)]="usuario" label="Nombre" formControlName="nombre"
+      <ion-input label="Nombre" formControlName="nombre"
        required minlength="3" maxlength="8" class="usuario" name="nombre" type="text"
       label-placement="floating" fill="outline" placeholder=""></ion-input>
   
   <br><br>
 
-         <ion-input [(ngModel)]="password" label="Contraseña" type="password" formControlName="password" 
-         label-placement="floating"  required minlength="4" maxlength="4" class="contra"
+         <ion-input  label="Email" type="email" formControlName="email" 
+         label-placement="floating"   class="email"
          fill="outline" placeholder=""></ion-input>
+        
  <br><br>
-         <ion-input label="Confirmar Contraseña" type="password" formControlName="confirmacionPassword" 
+         <ion-input label="Contraseña" type="password" formControlName="password" 
        label-placement="floating"  required minlength="4" maxlength="4" class="contra2"
        fill="outline" placeholder=""></ion-input>
 

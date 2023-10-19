@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { UserServiceService } from '../user-service.service';
+import { AutheticationService } from '../authetication.service';
 
 @Component({
   selector: 'app-registro',
@@ -11,56 +12,57 @@ import { UserServiceService } from '../user-service.service';
 })
 export class RegistroPage implements OnInit {
 
-  formularioRegistro: FormGroup;
-  usuario: any;
-  password: any;
-
+  formularioRegistro!: FormGroup; 
+ 
   constructor(public fb: FormBuilder,
               public alertController :AlertController,
               private userservice : UserServiceService,
-              private router: Router) {
-    this.formularioRegistro = this.fb.group({
-      'nombre': new FormControl("", Validators.required),
-      'password': new FormControl("", Validators.required),
-      'confirmacionPassword': new FormControl("", Validators.required)
-    });
+              private router: Router,
+              public loadingCtrl :LoadingController,
+              public authService: AutheticationService,
+              ) {
+  
 
 
    }
 
   ngOnInit() {
+    this.formularioRegistro = this.fb.group({
+      nombre : ['', [Validators.required]],
+      email : ['', [Validators.required], 
+        Validators.email, 
+        Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')],
+      password : ['',Validators.required,]
+    
+    })
   }
+
+
+  get errorControl(){
+    return this.formularioRegistro?.controls;
+  };
 
   async guardar(){
-    var f = this.formularioRegistro.value;
-
-    if (this.formularioRegistro.invalid){
-      const alert = await this.alertController.create({
-        header:'Datos Incompletos',
-        message: 'Tienes que llenar todos los datos!',
-        buttons: ['Aceptar'],
-      });
+    const loading = await this.loadingCtrl.create();
+    await loading.present();
+    if (this.formularioRegistro?.valid){
+      const user = await this.authService.register(this.formularioRegistro.value.email, this.formularioRegistro.value.password).catch((error)=>{
+      
+    }).catch((error)=>{
+      console.log(error);
+      loading.dismiss()
+    })
   
-      await alert.present();
-      return;
+    if(user){
+      loading.dismiss()
+      this.router.navigate(['/home'])
     }else{
-      this.router.navigate(['/login']);
+      console.log('Ingresa credenciales correctas');
     }
-    
-
-    var usuario = {
-      nombre: f.nombre,
-      password: f.password
-    }
-
-    localStorage.setItem('usuario',JSON.stringify(usuario));
-
-   this.userservice.guardar(this.usuario, this.password)
-
-    
   }
-
+  
+  }
   ionViewWillEnter() {
-    this.formularioRegistro.reset(); // Reinicia el estado del formulario
+    this.formularioRegistro?.reset(); // Reinicia el estado del formulario
   }
 }
